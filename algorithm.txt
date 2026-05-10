@@ -1,37 +1,34 @@
 DEBUT
-
   Lire(phrase)
 
-  longueur   := 0
-  nbMots     := 1      (* au moins 1 mot si la phrase n'est pas vide *)
-  nbVoyelles := 0
-  i          := 1
+  longueur:=0
+  nb_mots:=1
+  nb_voyelles:=0
+  i:=1
 
-  WHILE (phrase[i] != '.') DO
+  WHILE (phrase[i] !='.') DO
+    c:=phrase[i]
 
-    c := phrase[i]
+    /* longueur */
+    longueur:=longueur+1
 
-    (* Compteur 1 : longueur *)
-    longueur := longueur + 1
-
-    (* Compteur 2 : nombre de mots *)
-    IF (c = ' ') THEN
-      nbMots := nbMots + 1
+    /* nombre de mots */
+    IF (c='') THEN
+      nb_mots:=nb_mots+1
     END_IF
 
-    (* Compteur 3 : nombre de voyelles *)
-    IF (c = 'a' OR c = 'e' OR c = 'i' OR c = 'o' OR c = 'u'
-     OR c = 'A' OR c = 'E' OR c = 'I' OR c = 'O' OR c = 'U') THEN
+    /* nombre de voyelles */
+    IF (c = 'a' OR c = 'e' OR c = 'i' OR c = 'o' OR c = 'u' OR c = 'y'
+    OR c = 'A' OR c = 'E' OR c = 'I' OR c = 'O' OR c = 'U' OR c = 'Y') THEN
       nbVoyelles := nbVoyelles + 1
     END_IF
 
-    i := i + 1
+    i:=i+1
 
   END_WHILE
 
-  (* Affichage des résultats *)
-  Write("Longueur de la phrase : ", longueur)
-  Write("Nombre de mots        : ", nbMots)
-  Write("Nombre de voyelles    : ", nbVoyelles)
+  Write("Longueur de la phrase:",longueur)
+  Write("Nombre de mots:",nb_mots)
+  Write("Nombre de voyelles:",nb_voyelles)
 
 FIN
